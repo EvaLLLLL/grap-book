@@ -1,7 +1,6 @@
 import React from 'react';
 import {HashRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
-import Pay from './views/Pay';
-import Income from './views/Income';
+import Home from './views/Home';
 import Statistics from './views/Statistics';
 import NoMatch from './views/NoMatch';
 
@@ -10,11 +9,11 @@ function App() {
 		<div className="App">
 			<Router>
 				<Switch>
-					<Route exact path='/pay'>
-						<Pay/>
+					<Route exact path='/home'>
+						<Home/>
 					</Route>
 					<Route exact path='/income'>
-						<Income/>
+						<Home/>
 					</Route>
 					<Route exact path='/statistics'>
 						<Statistics/>
