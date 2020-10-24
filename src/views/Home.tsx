@@ -31,10 +31,10 @@ const Wrapper = styled.div`
 	}
 `;
 
-const Home = () => {
-	const [hideAddBook, sethideAddBook] = useState(true);
+const Home: React.FC = (props) => {
+	const [hideAddBook, setHideAddBook] = useState(true);
 	const addBookVisible = () => {
-		sethideAddBook(false);
+		setHideAddBook(!hideAddBook);
 	};
 	return (
 		<Wrapper>
@@ -46,7 +46,7 @@ const Home = () => {
 			<Book/>
 			<Button content={'+ 添加账本'}
 			        onClick={addBookVisible}/>
-			{hideAddBook ? '' : <AddBook/>}
+			{hideAddBook ? '' : <AddBook hideAdd={addBookVisible}/>}
 		</Wrapper>);
 	
 };

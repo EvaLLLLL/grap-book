@@ -82,16 +82,19 @@ const AddBookWrapper = styled.div`
 	}
 `;
 
+type Props = {
+	hideAdd: () => void
+}
 
-const AddBook:React.FC  = (props) => {
+const AddBook: React.FC<Props> = (props) => {
 		return (
 			<AddBookWrapper>
-				<div className="overlay"/>
+				<div className="overlay" onClick={props.hideAdd}/>
 				<div className="dialog">
 					<div className="nav">
 						<span className="dontshow"/>
 						<span className="title">添加账本</span>
-						<span className="close"/>
+						<span className="close" onClick={props.hideAdd}/>
 					</div>
 					<div className="content">
 						<div className="item">
