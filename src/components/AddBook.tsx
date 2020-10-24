@@ -82,45 +82,47 @@ const AddBookWrapper = styled.div`
 	}
 `;
 
-const AddBook = () => {
-	return (
-		<AddBookWrapper>
-			<div className="overlay"/>
-			<div className="dialog">
-				<div className="nav">
-					<span className="dontshow"/>
-					<span className="title">添加账本</span>
-					<span className="close"/>
+
+const AddBook:React.FC  = (props) => {
+		return (
+			<AddBookWrapper>
+				<div className="overlay"/>
+				<div className="dialog">
+					<div className="nav">
+						<span className="dontshow"/>
+						<span className="title">添加账本</span>
+						<span className="close"/>
+					</div>
+					<div className="content">
+						<div className="item">
+							<Icon name="food" className="icon"/>
+							<span>食物</span>
+						</div>
+						<div className="item">
+							<Icon name="traffic" className="icon"/>
+							<span>交通</span>
+						</div>
+						<div className="item">
+							<Icon name="travel" className="icon"/>
+							<span>旅行</span>
+						</div>
+						<div className="item">
+							<Icon name="pets" className="icon"/>
+							<span>宠物</span>
+						</div>
+						<div className="item">
+							<Icon name="clothes" className="icon"/>
+							<span>衣服</span>
+						</div>
+						<div className="item">
+							<Icon name="learn" className="icon"/>
+							<span>学习</span>
+						</div>
+					</div>
 				</div>
-				<div className="content">
-					<div className="item">
-						<Icon name="food" className="icon"/>
-						<span>食物</span>
-					</div>
-					<div className="item">
-						<Icon name="traffic" className="icon"/>
-						<span>交通</span>
-					</div>
-					<div className="item">
-						<Icon name="travel" className="icon"/>
-						<span>旅行</span>
-					</div>
-					<div className="item">
-						<Icon name="pets" className="icon"/>
-						<span>宠物</span>
-					</div>
-					<div className="item">
-						<Icon name="clothes" className="icon"/>
-						<span>衣服</span>
-					</div>
-					<div className="item">
-						<Icon name="learn" className="icon"/>
-						<span>学习</span>
-					</div>
-				</div>
-			</div>
-		</AddBookWrapper>
-	);
-};
+			</AddBookWrapper>
+		);
+	}
+;
 
 export default AddBook;

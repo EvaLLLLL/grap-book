@@ -16,12 +16,12 @@ const ButtonWrapper = styled.div`
 
 type Props = {
 	content: string
-}
+} & React.HtmlHTMLAttributes<HTMLDivElement>
 
 const Button: React.FC<Props> = (props) => {
 	const {content} = props;
 	return (
-		<ButtonWrapper>{content}</ButtonWrapper>
+		<ButtonWrapper onClick={props.onClick}>{content}</ButtonWrapper>
 	);
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import Book from '../components/Book';
 import Button from '../components/Button';
@@ -26,20 +26,28 @@ const Wrapper = styled.div`
 	transform: translateY(-4px);
 	}
 	}
+	> .hideAddBook {
+		display: none;
+	}
 `;
 
 const Home = () => {
+	const [hideAddBook, sethideAddBook] = useState(true);
+	const addBookVisible = () => {
+		sethideAddBook(false);
+	};
 	return (
 		<Wrapper>
 			<div className="title">
 				<span>葡萄记账</span>
-				<Icon name="grap" className="icon"/>
+				<Icon name="grap"
+				      className="icon"/>
 			</div>
 			<Book/>
-			<Button content={'+ 添加账本'}/>
-			{/*<AddBook/>*/}
-		</Wrapper>
-	);
+			<Button content={'+ 添加账本'}
+			        onClick={addBookVisible}/>
+			{hideAddBook ? '' : <AddBook/>}
+		</Wrapper>);
+	
 };
-
 export default Home;
