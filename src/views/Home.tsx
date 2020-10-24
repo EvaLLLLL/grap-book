@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import Book from '../components/Book';
 import Button from '../components/Button';
 import Icon from '../components/Icon';
 import AddBook from '../components/AddBook';
+import BookItem from '../components/BookItem';
 
 const Wrapper = styled.div`
 	color: white;
@@ -43,7 +43,7 @@ const Home: React.FC = (props) => {
 				<Icon name="grap"
 				      className="icon"/>
 			</div>
-			<Book/>
+			<BookItem/>
 			<Button content={'+ 添加账本'}
 			        onClick={addBookVisible}/>
 			{hideAddBook ? '' : <AddBook hideAdd={addBookVisible}/>}
