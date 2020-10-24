@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Book from '../components/Book';
 import Button from '../components/Button';
 import Icon from '../components/Icon';
+import AddBook from '../components/AddBook';
 
 const Wrapper = styled.div`
 	color: white;
@@ -36,6 +37,7 @@ const Home = () => {
 			</div>
 			<Book/>
 			<Button content={'+ 添加账本'}/>
+			{/*<AddBook/>*/}
 		</Wrapper>
 	);
 };
