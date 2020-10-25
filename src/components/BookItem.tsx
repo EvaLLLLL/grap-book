@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Icon from './Icon';
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const BookItemWrapper = styled.div`
 width: 150px;
@@ -61,19 +62,21 @@ const BookItem: React.FC<Props> = (props) => {
 		<BookWrapper>
 			{bookContent.map((item) => {
 				return (
-					<BookItemWrapper key={item.title}>
-						<Title>
-							<Icon name={item.iconName} className="icon"/>
-							<span>{item.title}</span>
-						</Title>
-						<Money>
-							￥ 12584
-							<div>总支出</div>
-						</Money>
-						<BookNumber>
-							8 条记录
-						</BookNumber>
-					</BookItemWrapper>
+					<Link to={item.iconName} key={item.title}>
+						<BookItemWrapper>
+							<Title>
+								<Icon name={item.iconName} className="icon"/>
+								<span>{item.title}</span>
+							</Title>
+							<Money>
+								￥ 12584
+								<div>总支出</div>
+							</Money>
+							<BookNumber>
+								8 条记录
+							</BookNumber>
+						</BookItemWrapper>
+					</Link>
 				);
 			})}
 		</BookWrapper>
