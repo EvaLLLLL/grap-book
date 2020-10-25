@@ -39,11 +39,19 @@ const Home: React.FC = (props) => {
 	
 	const [bookContent, setBookContent] = useState([
 		{iconName: 'travel', title: '旅行'},
+		{iconName: 'food', title: '食物'}
 	]);
 	
 	const addBookItem = (iconName: string, title: string) => {
 		const bookItem = {iconName: iconName, title: title};
-		setBookContent([...bookContent, bookItem]);
+		const names = bookContent.map((item: any) => {
+			return item.iconName;
+		});
+		if (names.indexOf(iconName) < 0) {
+			setBookContent([...bookContent, bookItem]);
+		} else {
+			alert(`已创建过${title}账本！`);
+		}
 	};
 	
 	return (

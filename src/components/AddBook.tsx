@@ -96,8 +96,8 @@ const AddBook: React.FC<Props> = (props) => {
 			{name: 'clothes', title: '衣服'},
 			{name: 'learn', title: '学习'}
 		];
-		
-		const handleAddBook = (name: string, title: string) => {
+
+	const handleAddBook = (name: string, title: string) => {
 			props.addBookItem(name, title);
 		};
 		
