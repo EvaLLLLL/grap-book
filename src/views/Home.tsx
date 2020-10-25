@@ -37,12 +37,14 @@ const Home: React.FC = (props) => {
 		setHideAddBook(!hideAddBook);
 	};
 	
-	const bookContent = [
+	const [bookContent, setBookContent] = useState([
 		{iconName: 'travel', title: '旅行'},
-		{iconName: 'food', title: '食物'},
-		{iconName: 'pets', title: '宠物'},
-		{iconName: 'clothes', title: '衣服'},
-	]
+	]);
+	
+	const addBookItem = (iconName: string, title: string) => {
+		const bookItem = {iconName: iconName, title: title};
+		setBookContent([...bookContent, bookItem]);
+	};
 	
 	return (
 		<Wrapper>
@@ -54,7 +56,10 @@ const Home: React.FC = (props) => {
 			<BookItem bookContent={bookContent}/>
 			<Button content={'+ 添加账本'}
 			        onClick={addBookVisible}/>
-			{hideAddBook ? '' : <AddBook hideAdd={addBookVisible}/>}
+			{
+				hideAddBook ? '' :
+					<AddBook hideAdd={addBookVisible} addBookItem={addBookItem}/>
+			}
 		</Wrapper>);
 };
 export default Home;

@@ -45,8 +45,13 @@ const BookWrapper = styled.div`
 	overflow: scroll;
 `;
 
+type obj = {
+	iconName: string,
+	title: string
+}
+
 type Props = {
-	bookContent: Array<any>
+	bookContent: Array<obj>
 }
 
 const BookItem: React.FC<Props> = (props) => {

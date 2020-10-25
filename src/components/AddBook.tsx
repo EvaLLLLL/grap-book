@@ -83,10 +83,24 @@ const AddBookWrapper = styled.div`
 `;
 
 type Props = {
-	hideAdd: () => void
+	hideAdd: () => void,
+	addBookItem: (iconName: string, title: string) => void
 }
 
 const AddBook: React.FC<Props> = (props) => {
+		const content = [
+			{name: 'food', title: '食物'},
+			{name: 'traffic', title: '交通'},
+			{name: 'travel', title: '旅行'},
+			{name: 'pets', title: '宠物'},
+			{name: 'clothes', title: '衣服'},
+			{name: 'learn', title: '学习'}
+		];
+		
+		const handleAddBook = (name: string, title: string) => {
+			props.addBookItem(name, title);
+		};
+		
 		return (
 			<AddBookWrapper>
 				<div className="overlay" onClick={props.hideAdd}/>
@@ -96,31 +110,16 @@ const AddBook: React.FC<Props> = (props) => {
 						<span className="title">添加账本</span>
 						<span className="close" onClick={props.hideAdd}/>
 					</div>
-					<div className="content">
-						<div className="item">
-							<Icon name="food" className="icon"/>
-							<span>食物</span>
-						</div>
-						<div className="item">
-							<Icon name="traffic" className="icon"/>
-							<span>交通</span>
-						</div>
-						<div className="item">
-							<Icon name="travel" className="icon"/>
-							<span>旅行</span>
-						</div>
-						<div className="item">
-							<Icon name="pets" className="icon"/>
-							<span>宠物</span>
-						</div>
-						<div className="item">
-							<Icon name="clothes" className="icon"/>
-							<span>衣服</span>
-						</div>
-						<div className="item">
-							<Icon name="learn" className="icon"/>
-							<span>学习</span>
-						</div>
+					<div className="content" onClick={props.hideAdd}>
+						{content.map((item) => {
+							return (
+								
+								<div className="item" onClick={() => handleAddBook(item.name, item.title)} key={item.name}>
+									<Icon name={item.name} className="icon"/>
+									<span>{item.title}</span>
+								</div>
+							);
+						})}
 					</div>
 				</div>
 			</AddBookWrapper>
