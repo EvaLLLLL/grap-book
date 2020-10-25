@@ -45,22 +45,32 @@ const BookWrapper = styled.div`
 	overflow: scroll;
 `;
 
-const BookItem = () => {
+type Props = {
+	bookContent: Array<any>
+}
+
+const BookItem: React.FC<Props> = (props) => {
+	const bookContent = props.bookContent;
+	
 	return (
 		<BookWrapper>
-			<BookItemWrapper>
-				<Title>
-					<Icon name="travel" className="icon"/>
-					<span>旅行</span>
-				</Title>
-				<Money>
-					￥ 12584
-					<div>总支出</div>
-				</Money>
-				<BookNumber>
-					8 条记录
-				</BookNumber>
-			</BookItemWrapper>
+			{bookContent.map((item) => {
+				return (
+					<BookItemWrapper key={item.title}>
+						<Title>
+							<Icon name={item.iconName} className="icon"/>
+							<span>{item.title}</span>
+						</Title>
+						<Money>
+							￥ 12584
+							<div>总支出</div>
+						</Money>
+						<BookNumber>
+							8 条记录
+						</BookNumber>
+					</BookItemWrapper>
+				);
+			})}
 		</BookWrapper>
 	);
 };

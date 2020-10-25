@@ -36,6 +36,14 @@ const Home: React.FC = (props) => {
 	const addBookVisible = () => {
 		setHideAddBook(!hideAddBook);
 	};
+	
+	const bookContent = [
+		{iconName: 'travel', title: '旅行'},
+		{iconName: 'food', title: '食物'},
+		{iconName: 'pets', title: '宠物'},
+		{iconName: 'clothes', title: '衣服'},
+	]
+	
 	return (
 		<Wrapper>
 			<div className="title">
@@ -43,11 +51,10 @@ const Home: React.FC = (props) => {
 				<Icon name="grap"
 				      className="icon"/>
 			</div>
-			<BookItem/>
+			<BookItem bookContent={bookContent}/>
 			<Button content={'+ 添加账本'}
 			        onClick={addBookVisible}/>
 			{hideAddBook ? '' : <AddBook hideAdd={addBookVisible}/>}
 		</Wrapper>);
-	
 };
 export default Home;
