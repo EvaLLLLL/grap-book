@@ -8,6 +8,7 @@ import TravelBook from './views/TravelBook';
 import PetsBook from './views/PetsBook';
 import LearnBook from './views/LearnBook';
 import TrafficBook from './views/TrafficBook';
+import Money from './views/Money';
 
 function App() {
 	return (
@@ -16,6 +17,9 @@ function App() {
 				<Switch>
 					<Route exact path='/home'>
 						<Home/>
+					</Route>
+					<Route exact path='/money'>
+						<Money/>
 					</Route>
 					<Route exact path='/food'>
 						<FoodBook/>
