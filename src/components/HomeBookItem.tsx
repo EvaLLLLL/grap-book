@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Icon from './Icon';
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {RecordItem} from '../lib/useRecords';
+import {BookItem} from '../lib/useBooks';
 
 const BookItemWrapper = styled.div`
 width: 150px;
@@ -49,10 +49,10 @@ const BookWrapper = styled.div`
 
 
 type Props = {
-	bookContent: Array<RecordItem>
+	bookContent: Array<BookItem>
 }
 
-const BookItem: React.FC<Props> = (props) => {
+const HomeBookItem: React.FC<Props> = (props) => {
 	const bookContent = props.bookContent;
 	return (
 		<BookWrapper>
@@ -80,4 +80,4 @@ const BookItem: React.FC<Props> = (props) => {
 	);
 };
 
-export default BookItem;
+export default HomeBookItem;

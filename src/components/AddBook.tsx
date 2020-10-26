@@ -113,7 +113,6 @@ const AddBook: React.FC<Props> = (props) => {
 					<div className="content" onClick={props.hideAdd}>
 						{content.map((item) => {
 							return (
-								
 								<div className="item" onClick={() => handleAddBook(item.name, item.title)} key={item.name}>
 									<Icon name={item.name} className="icon"/>
 									<span>{item.title}</span>

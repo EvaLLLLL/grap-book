@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import {useUpdate} from './useUpdate';
 import {createID} from './createId';
 
-export type RecordItem = {
+export type BookItem = {
 	id: number
 	iconName: string,
 	title: string,
@@ -11,10 +11,8 @@ export type RecordItem = {
 	createdAt?: string
 };
 
-type newRecordItem = Omit<RecordItem, 'cretedAt'>
-
-const useRecords = () => {
-	const [records, setRecords] = useState<RecordItem[]>([]);
+const useBooks = () => {
+	const [books, setBooks] = useState<BookItem[]>([]);
 	
 	useEffect(() => {
 		let localRecords = JSON.parse(window.localStorage.getItem('records') || '[]');
@@ -29,35 +27,32 @@ const useRecords = () => {
 				}
 			];
 		}
-		setRecords(localRecords);
+		setBooks(localRecords);
 	}, []);
 	
 	useUpdate(() => {
-		window.localStorage.setItem('records', JSON.stringify(records));
-	}, [records]);
+		window.localStorage.setItem('records', JSON.stringify(books));
+	}, [books]);
 	
-	const addRecord = (newRecord: newRecordItem) => {
-		if (newRecord.amount <= 0) {
-			return false;
-		}
-		const record = {...newRecord, createdAt: (new Date()).toISOString()};
-		setRecords([...records, record]);
+	const addRecord = (newBookItem: BookItem) => {
+		const record = {...newBookItem, createdAt: (new Date()).toISOString()};
+		setBooks([...books, record]);
 		return true;
 	};
 	
 	const addNewBook = (iconName: string, title: string) => {
 		const newBook = {
 			id: createID(),
-			iconName: 'travel',
+			iconName: iconName,
 			title: title,
 			notes: '',
 			amount: 0,
 			createdAt: (new Date()).toISOString()
 		};
-		setRecords([...records, newBook]);
+		setBooks([...books, newBook]);
 	};
 	
-	return {records, addNewBook, addRecord};
+	return {books, addNewBook, addRecord};
 };
 
-export {useRecords};
+export {useBooks};

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import Button from '../components/Button';
 import Icon from '../components/Icon';
 import AddBook from '../components/AddBook';
-import BookItem from '../components/BookItem';
-import {useRecords} from '../lib/useRecords';
+import HomeBookItem from '../components/HomeBookItem';
+import {useBooks} from '../lib/useBooks';
 
 const Wrapper = styled.div`
 	color: white;
@@ -38,10 +38,10 @@ const Home: React.FC = (props) => {
 		setHideAddBook(!hideAddBook);
 	};
 	
-	const {records, addNewBook} = useRecords();
+	const {books, addNewBook} = useBooks();
 	
 	const addBookItem = (iconName: string, title: string) => {
-		const names = records.map((item: any) => {
+		const names = books.map((item: any) => {
 			return item.iconName;
 		});
 		if (names.indexOf(iconName) < 0) {
@@ -58,7 +58,7 @@ const Home: React.FC = (props) => {
 				<Icon name="grap"
 				      className="icon"/>
 			</div>
-			<BookItem bookContent={records}/>
+			<HomeBookItem bookContent={books}/>
 			<Button content={'+ 添加账本'}
 			        onClick={addBookVisible}/>
 			{
