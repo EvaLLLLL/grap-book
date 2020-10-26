@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../components/Button';
 import Icon from '../components/Icon';
+import {Link} from 'react-router-dom';
 
 const Wrapper = styled.div`
 	color: white;
@@ -23,9 +24,11 @@ const Wrapper = styled.div`
 			margin-right: 5px;
 			}
 			> .goback {
+			margin-right: 20px;
+			> .icon {
 			width: 1.5em;
 			height: 1.5em;
-			margin-right: 20px;
+				}
 			}
 		}
 	}
@@ -62,7 +65,9 @@ const TravelBook: React.FC = (props) => {
 		<Wrapper>
 			<div className="titleWrapper">
 				<div className="title">
-					<Icon name="goback" className="goback"/>
+					<Link to="/" className="goback">
+						<Icon name="goback" className="icon"/>
+					</Link>
 					<Icon name="travel" className="icon"/>
 					<span>旅行</span>
 				</div>
