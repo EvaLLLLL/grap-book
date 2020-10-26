@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
+import {generateOutput} from '../lib/generateOutput';
 
 const MoneyWrapper = styled.div`
 	position: relative;
@@ -16,13 +17,11 @@ const MoneyWrapper = styled.div`
 			background: black;
 			width: 100%;
 			height: 100%;
-			border: 1px solid #999999;
 			resize: none;
 		}
 	}
 	> .output {
-		border-left: 1px solid #999;
-		border-right: 1px solid #999;
+		border: 1px solid #999;
 		color: white;
 		font-size: 2em;
 		background: #26282b;
@@ -46,10 +45,10 @@ const MoneyWrapper = styled.div`
 			color: white;
 			font-size: 1.2em;
 			width: 25%;
-			height: 70px;
+			height: 80px;
 			border: 1px solid #999999;
 			&.ok {
-				height: 140px;
+				height: 160px;
 				float: right;
 			}
 			&.dot {
@@ -60,6 +59,16 @@ const MoneyWrapper = styled.div`
 `;
 
 const Money = () => {
+	const [output, setOutput] = useState('0');
+	
+	const onClickButtonWrapper = (e: React.MouseEvent) => {
+		const text = (e.target as HTMLButtonElement).textContent || '0';
+		if (text === 'OK') {
+			return;
+		}
+		setOutput(generateOutput(text, output));
+	};
+	
 	return (
 		<MoneyWrapper>
 			<div className="note">
@@ -67,9 +76,9 @@ const Money = () => {
 			</div>
 			<div className="output">
 				<span className="yuan">￥</span>
-				<span className="number">0</span>
+				<span className="number">{output}</span>
 			</div>
-			<div className="buttonWrapper">
+			<div className="buttonWrapper" onClick={onClickButtonWrapper}>
 				<button>1</button>
 				<button>2</button>
 				<button>3</button>
