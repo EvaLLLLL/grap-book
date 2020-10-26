@@ -62,11 +62,12 @@ const Wrapper = styled.div`
 
 type Props = {
 	number: number | 0,
-	title:string,
+	title: string,
+	iconName: string
 }
 
-const BookDetails:React.FC<Props> = (props) => {
-	const {number, title} = props;
+const BookDetails: React.FC<Props> = (props) => {
+	const {number, iconName, title} = props;
 	return (
 		<Wrapper>
 			<div className="titleWrapper">
@@ -74,7 +75,7 @@ const BookDetails:React.FC<Props> = (props) => {
 					<Link to="/" className="goback">
 						<Icon name="goback" className="icon"/>
 					</Link>
-					<Icon name="travel" className="icon"/>
+					<Icon name={iconName} className="icon"/>
 					<span>{title}</span>
 				</div>
 			</div>

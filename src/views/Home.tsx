@@ -39,7 +39,11 @@ const Home: React.FC = (props) => {
 	
 	const [bookContent, setBookContent] = useState([
 		{iconName: 'travel', title: '旅行'},
-		{iconName: 'food', title: '食物'}
+		{iconName: 'food', title: '食物'},
+		{iconName: 'clothes', title: '衣服'},
+		{iconName: 'pets', title: '宠物'},
+		{iconName: 'traffic', title: '交通'},
+		{iconName: 'learn', title: '学习'}
 	]);
 	
 	const addBookItem = (iconName: string, title: string) => {
