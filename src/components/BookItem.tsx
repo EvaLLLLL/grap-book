@@ -9,7 +9,7 @@ border-radius: 10px;
 background: #26282a;
 color: white;
 padding: 10px;
-margin: 10px 0;
+margin: 5px 0;
 `;
 const Title = styled.div`
 	color: #999;

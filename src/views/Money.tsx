@@ -69,7 +69,6 @@ const MoneyWrapper = styled.div`
 `;
 
 const Money = () => {
-	console.log(document.referrer);
 	const [output, setOutput] = useState('0');
 	
 	const onClickButtonWrapper = (e: React.MouseEvent) => {
