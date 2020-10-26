@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import {generateOutput} from '../lib/generateOutput';
+import Icon from '../components/Icon';
 
 const MoneyWrapper = styled.div`
 	position: relative;
@@ -13,12 +14,19 @@ const MoneyWrapper = styled.div`
 		> textarea {
 			font-size: 1.2em;
 			white-space: pre-wrap;
-			padding: 20px;
+			padding: 20px 40px 20px 20px;
 			color: white;
 			background: black;
 			width: 100%;
 			height: 100%;
 			resize: none;
+		}
+		> .icon {
+			width: 1.5em;
+			position: fixed;
+			right: 16px;
+			top: 20px;
+			transform: translateY(-2px);
 		}
 	}
 	> .output {
@@ -74,6 +82,7 @@ const Money = () => {
 		<MoneyWrapper>
 			<div className="note">
 				<textarea placeholder="点击输入备注"/>
+				<Icon name="close" className="icon"/>
 			</div>
 			<div className="output">
 				<span className="yuan">￥</span>
