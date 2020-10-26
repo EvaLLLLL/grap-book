@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import Icon from '../components/Icon';
 import AddBook from '../components/AddBook';
 import BookItem from '../components/BookItem';
+import {useRecords} from '../lib/useRecords';
 
 const Wrapper = styled.div`
 	color: white;
@@ -37,22 +38,14 @@ const Home: React.FC = (props) => {
 		setHideAddBook(!hideAddBook);
 	};
 	
-	const [bookContent, setBookContent] = useState([
-		{iconName: 'travel', title: '旅行'},
-		{iconName: 'food', title: '食物'},
-		{iconName: 'clothes', title: '衣服'},
-		{iconName: 'pets', title: '宠物'},
-		{iconName: 'traffic', title: '交通'},
-		{iconName: 'learn', title: '学习'}
-	]);
+	const {records, addNewBook} = useRecords();
 	
 	const addBookItem = (iconName: string, title: string) => {
-		const bookItem = {iconName: iconName, title: title};
-		const names = bookContent.map((item: any) => {
+		const names = records.map((item: any) => {
 			return item.iconName;
 		});
 		if (names.indexOf(iconName) < 0) {
-			setBookContent([...bookContent, bookItem]);
+			addNewBook(iconName, title);
 		} else {
 			alert(`已创建过${title}账本！`);
 		}
@@ -65,7 +58,7 @@ const Home: React.FC = (props) => {
 				<Icon name="grap"
 				      className="icon"/>
 			</div>
-			<BookItem bookContent={bookContent}/>
+			<BookItem bookContent={records}/>
 			<Button content={'+ 添加账本'}
 			        onClick={addBookVisible}/>
 			{

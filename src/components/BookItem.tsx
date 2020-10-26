@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Icon from './Icon';
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {RecordItem} from '../lib/useRecords';
 
 const BookItemWrapper = styled.div`
 width: 150px;
@@ -46,18 +47,13 @@ const BookWrapper = styled.div`
 	overflow: scroll;
 `;
 
-type obj = {
-	iconName: string,
-	title: string
-}
 
 type Props = {
-	bookContent: Array<obj>
+	bookContent: Array<RecordItem>
 }
 
 const BookItem: React.FC<Props> = (props) => {
 	const bookContent = props.bookContent;
-	
 	return (
 		<BookWrapper>
 			{bookContent.map((item) => {
@@ -69,11 +65,12 @@ const BookItem: React.FC<Props> = (props) => {
 								<span>{item.title}</span>
 							</Title>
 							<Money>
-								￥ 12584
+								￥ {item.amount.toString()}
 								<div>总支出</div>
 							</Money>
 							<BookNumber>
-								8 条记录
+								{/*{TODO} */}
+								0 条记录
 							</BookNumber>
 						</BookItemWrapper>
 					</Link>
