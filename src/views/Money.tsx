@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import styled from 'styled-components';
 import {generateOutput} from '../lib/generateOutput';
 import Icon from '../components/Icon';
@@ -68,6 +69,7 @@ const MoneyWrapper = styled.div`
 `;
 
 const Money = () => {
+	console.log(document.referrer);
 	const [output, setOutput] = useState('0');
 	
 	const onClickButtonWrapper = (e: React.MouseEvent) => {
@@ -78,11 +80,16 @@ const Money = () => {
 		setOutput(generateOutput(text, output));
 	};
 	
+	const history = useHistory();
+	const goBack = () => {
+		history.goBack();
+	};
+	
 	return (
 		<MoneyWrapper>
 			<div className="note">
 				<textarea placeholder="点击输入备注"/>
-				<Icon name="close" className="icon"/>
+				<Icon name="close" className="icon" onClick={goBack}/>
 			</div>
 			<div className="output">
 				<span className="yuan">￥</span>

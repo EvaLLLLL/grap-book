@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from '../components/Button';
 import Icon from '../components/Icon';
 import {Link} from 'react-router-dom';
 
@@ -81,14 +80,13 @@ const BookDetails: React.FC<Props> = (props) => {
 			</div>
 			<div className="amount">
 				<span>总支出</span>
-				<span className="number">{number}</span>
+				<span className="number">￥{number}</span>
 			</div>
 			<div className="content">
 				<div className="records">
 					{props.children}
 				</div>
 			</div>
-			<Button content={'+ 记一笔'}/>
 		</Wrapper>);
 };
 export default BookDetails;

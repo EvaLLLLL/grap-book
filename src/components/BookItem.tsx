@@ -62,7 +62,7 @@ const BookItem: React.FC<Props> = (props) => {
 		<BookWrapper>
 			{bookContent.map((item) => {
 				return (
-					<Link to={item.iconName} key={item.title}>
+					<Link to={`/money/${item.iconName}`} key={item.title}>
 						<BookItemWrapper>
 							<Title>
 								<Icon name={item.iconName} className="icon"/>

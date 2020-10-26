@@ -1,5 +1,7 @@
 import React from 'react';
 import BookDetails from '../components/BookDetails';
+import Button from '../components/Button';
+import {Link} from 'react-router-dom';
 
 const TravelBook: React.FC = (props) => {
 	const number = 1234;
@@ -15,6 +17,9 @@ const TravelBook: React.FC = (props) => {
 					<span className="money">￥128</span>
 				</div>
 			</BookDetails>
+			<Link to='/money/travel/:id'>
+				<Button content={'+ 记一笔'}/>
+			</Link>
 		</div>
 	);
 };
