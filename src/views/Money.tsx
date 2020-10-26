@@ -7,8 +7,9 @@ const MoneyWrapper = styled.div`
 	background: black;
 	height: 100vh;
 	display: grid;
-	grid-template-rows: 35% 25% auto;
+	grid-template-rows: 35% 25% 40%;
 	> .note {
+		border: 1px solid #999;
 		> textarea {
 			font-size: 1.2em;
 			white-space: pre-wrap;
@@ -36,19 +37,19 @@ const MoneyWrapper = styled.div`
 		}
 	}
 	> .buttonWrapper {
-		position: absolute;
-		bottom: 0;
+		border: 1px solid #999;
 		width: 100%;
+		height: 100%;
 		> button {
 			background: #717273;
 			float: left;
 			color: white;
 			font-size: 1.2em;
 			width: 25%;
-			height: 80px;
+			height: 25%;
 			border: 1px solid #999999;
 			&.ok {
-				height: 160px;
+				height: 50%;
 				float: right;
 			}
 			&.dot {
