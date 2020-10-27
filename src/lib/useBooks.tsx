@@ -6,9 +6,8 @@ export type BookItem = {
 	id: number
 	iconName: string,
 	title: string,
-	notes: string,
+	notesNumber: number,
 	amount: number,
-	createdAt?: string
 };
 
 const useBooks = () => {
@@ -22,7 +21,7 @@ const useBooks = () => {
 					id: 1,
 					iconName: 'travel',
 					title: '旅行',
-					note: '',
+					notesNumber: 0,
 					amount: 0,
 				}
 			];
@@ -45,9 +44,8 @@ const useBooks = () => {
 			id: createID(),
 			iconName: iconName,
 			title: title,
-			notes: '',
+			notesNumber: 0,
 			amount: 0,
-			createdAt: (new Date()).toISOString()
 		};
 		setBooks([...books, newBook]);
 	};

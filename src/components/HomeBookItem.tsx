@@ -69,8 +69,7 @@ const HomeBookItem: React.FC<Props> = (props) => {
 								<div>总支出</div>
 							</Money>
 							<BookNumber>
-								{/*{TODO} */}
-								0 条记录
+								{item.notesNumber} 条记录
 							</BookNumber>
 						</BookItemWrapper>
 					</Link>
