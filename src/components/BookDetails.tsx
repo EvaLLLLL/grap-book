@@ -9,7 +9,6 @@ const Wrapper = styled.div`
 	background: black;
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
 	> .titleWrapper {
 			> .title {
 			display: flex;
@@ -59,7 +58,7 @@ type Props = {
 const BookDetails: React.FC<Props> = (props) => {
 	const {number, iconName, title} = props;
 	return (
-		<Wrapper>
+		<Wrapper className="fullscreen">
 			<div className="titleWrapper">
 				<div className="title">
 					<Link to="/" className="goback">

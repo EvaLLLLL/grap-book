@@ -65,7 +65,7 @@ const BookMoney: React.FC<Props> = (props) => {
 	};
 	
 	return (
-		<div>
+		<div className="fullscreen">
 			<BookDetails number={amount} title={props.title} iconName={props.iconName}>
 				<ItemWrapper>
 					{array.map((arrayItem) => {

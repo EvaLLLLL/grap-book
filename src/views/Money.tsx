@@ -6,9 +6,7 @@ import Icon from '../components/Icon';
 import {useRecords} from '../lib/useRecords';
 
 const MoneyWrapper = styled.div`
-	position: relative;
 	background: black;
-	height: 100vh;
 	display: grid;
 	grid-template-rows: 35% 25% 40%;
 	> .note {
@@ -117,7 +115,7 @@ const Money = () => {
 	};
 	
 	return (
-		<MoneyWrapper>
+		<MoneyWrapper className="fullscreen">
 			<div className="note">
 				<div className="test">
 				</div>

@@ -10,7 +10,6 @@ const Wrapper = styled.div`
 	color: white;
 	position: relative;
 	background: black;
-	height: 100vh;
 	> .title {
 	display: flex;
 	align-items: center;
@@ -32,7 +31,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-const Home: React.FC = (props) => {
+const Home = () => {
 	const [hideAddBook, setHideAddBook] = useState(true);
 	const {books, addNewBook} = useBooks();
 	
@@ -52,7 +51,7 @@ const Home: React.FC = (props) => {
 	};
 	
 	return (
-		<Wrapper>
+		<Wrapper className="fullscreen">
 			<div className="title">
 				<span>葡萄记账</span>
 				<Icon name="grap"
