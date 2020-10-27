@@ -14,7 +14,8 @@ const useRecords = () => {
 	const [records, setRecords] = useState<RecordItem[]>([]);
 	
 	useEffect(() => {
-		JSON.parse(window.localStorage.getItem('records') || '[]');
+		const localRecords = JSON.parse(window.localStorage.getItem('records') || '[]')
+		setRecords(localRecords)
 	}, []);
 	
 	useUpdate(() => {
@@ -22,15 +23,15 @@ const useRecords = () => {
 	}, [records]);
 	
 	const addRecords = (newRecordItem: RecordItem) => {
-			const newRecord = {
-				id: createID(),
-				iconName: newRecordItem.iconName,
-				recordMoney: newRecordItem.recordMoney,
-				notes: newRecordItem.notes,
-				createdAt: (new Date()).toISOString()
-			};
-			setRecords([...records, newRecord]);
-			return true
+		const newRecord = {
+			id: createID(),
+			iconName: newRecordItem.iconName,
+			recordMoney: newRecordItem.recordMoney,
+			notes: newRecordItem.notes,
+			createdAt: (new Date()).toISOString()
+		};
+		setRecords([...records, newRecord]);
+		return true;
 	};
 	
 	return {records, addRecords};

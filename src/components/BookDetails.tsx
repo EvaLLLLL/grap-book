@@ -43,20 +43,6 @@ const Wrapper = styled.div`
 			}
 		}
 	}
-	> .content {
-		> .records > .recordItem {
-			background: #1c1c1e;
-			border: 1px solid #343436;
-			padding: 10px 20px;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			> .note {
-				color: #999;
-			}
-			> .money {}
-		}
-	}
 `;
 
 type Props = {
