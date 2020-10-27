@@ -43,11 +43,15 @@ const useRecords = () => {
 				return pre + cur;
 			}, 0);
 		};
-		
 		return sumArray(recordMoneyArray);
 	}
 	
-	return {records, addRecords, getAmount};
+	const getNotesNumber = (iconName: string) => {
+		const current = records.filter(item => item.iconName === iconName);
+		return current.length
+	}
+	
+	return {records, addRecords, getAmount, getNotesNumber};
 };
 
 export {useRecords};

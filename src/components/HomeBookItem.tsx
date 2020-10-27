@@ -55,7 +55,7 @@ type Props = {
 
 const HomeBookItem: React.FC<Props> = (props) => {
 	const bookContent = props.bookContent;
-	const {getAmount} = useRecords();
+	const {getAmount, getNotesNumber} = useRecords();
 	
 	return (
 		<BookWrapper>
@@ -68,11 +68,11 @@ const HomeBookItem: React.FC<Props> = (props) => {
 								<span>{item.title}</span>
 							</Title>
 							<Money>
-								￥ {getAmount(`${item.iconName}`)}
+								￥ {getAmount(item.iconName)}
 								<div>总支出</div>
 							</Money>
 							<BookNumber>
-								{item.notesNumber} 条记录
+								{getNotesNumber(item.iconName)} 条记录
 							</BookNumber>
 						</BookItemWrapper>
 					</Link>
