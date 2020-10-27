@@ -10,6 +10,7 @@ export type BookItem = {
 	amount: number,
 };
 
+
 const useBooks = () => {
 	const [books, setBooks] = useState<BookItem[]>([]);
 	
@@ -44,7 +45,13 @@ const useBooks = () => {
 		setBooks([...books, newBook]);
 	};
 	
-	return {books, addNewBook};
+	const updateAmount = (iconName: string, amount: number) => {
+		const currentBook = books.filter(book => book.iconName === iconName)[0];
+		const newBookAmount = {...currentBook, amount: amount};
+		setBooks([...books, newBookAmount]);
+	};
+	
+	return {books, addNewBook, updateAmount};
 };
 
 export {useBooks};

@@ -3,6 +3,7 @@ import Icon from './Icon';
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {BookItem} from '../lib/useBooks';
+import {useRecords} from '../lib/useRecords';
 
 const BookItemWrapper = styled.div`
 width: 150px;
@@ -54,6 +55,8 @@ type Props = {
 
 const HomeBookItem: React.FC<Props> = (props) => {
 	const bookContent = props.bookContent;
+	const {getAmount} = useRecords();
+	
 	return (
 		<BookWrapper>
 			{bookContent.map((item) => {
@@ -65,7 +68,7 @@ const HomeBookItem: React.FC<Props> = (props) => {
 								<span>{item.title}</span>
 							</Title>
 							<Money>
-								￥ {item.amount.toString()}
+								￥ {getAmount(`${item.iconName}`)}
 								<div>总支出</div>
 							</Money>
 							<BookNumber>

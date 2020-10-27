@@ -34,7 +34,20 @@ const useRecords = () => {
 		return true;
 	};
 	
-	return {records, addRecords};
+	const getAmount = (iconName: string) => {
+		const currentItems = records.filter(item => item.iconName === iconName);
+		const recordMoneyArray = currentItems.map(item => item.recordMoney);
+		
+		const sumArray = (arr: number[]) => {
+			return arr.reduce((pre, cur) => {
+				return pre + cur;
+			}, 0);
+		};
+		
+		return sumArray(recordMoneyArray);
+	}
+	
+	return {records, addRecords, getAmount};
 };
 
 export {useRecords};

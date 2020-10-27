@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import {Link} from 'react-router-dom';
 import {useRecords} from '../lib/useRecords';
 import styled from 'styled-components';
+import {useBooks} from '../lib/useBooks';
 
 const RecordItem = styled.div`
 background: #1c1c1e;
@@ -18,15 +19,10 @@ background: #1c1c1e;
 `;
 
 const TravelBook: React.FC = (props) => {
-	const {records} = useRecords();
+	const {updateAmount} = useBooks();
+	const {records, getAmount} = useRecords();
 	const travelItems = records.filter(item => item.iconName === 'travel');
-	const sumArray = (arr: number[]) => {
-		return arr.reduce((pre, cur) => {
-			return pre + cur;
-		}, 0);
-	};
-	const recordMoneyArray = travelItems.map(item => item.recordMoney);
-	const amount = sumArray(recordMoneyArray);
+	const amount = getAmount('travel')
 	
 	return (
 		<div>
