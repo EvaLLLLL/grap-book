@@ -3,7 +3,6 @@ import {useHistory} from 'react-router-dom';
 import styled from 'styled-components';
 import {generateOutput} from '../lib/generateOutput';
 import Icon from '../components/Icon';
-import {createID} from '../lib/createId';
 import {useRecords} from '../lib/useRecords';
 
 const MoneyWrapper = styled.div`

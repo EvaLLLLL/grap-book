@@ -23,7 +23,7 @@ const Date = styled.div`
 
 const ItemWrapper = styled.div`
 	margin-bottom: 20vh;
-`
+`;
 
 const BookMoney: React.FC<Props> = (props) => {
 	const {records, getAmount} = useRecords();
@@ -33,11 +33,13 @@ const BookMoney: React.FC<Props> = (props) => {
 	const Items = records.filter(item => item.iconName === props.iconName);
 	
 	Items.forEach((item) => {
-		const key = dayjs(item.createdAt).format('YYYY-MM-DD');
-		if (!(key in hash)) {
-			hash[key] = [];
+		if (item.createdAt) {
+			const key = item.createdAt;
+			if (!(key in hash)) {
+				hash[key] = [];
+			}
+			hash[key].push(item);
 		}
-		hash[key].push(item);
 	});
 	
 	const array = Object.entries(hash).sort((a, b) => {
@@ -69,7 +71,6 @@ const BookMoney: React.FC<Props> = (props) => {
 					{array.map(([date, itemArray]) => {
 						return (
 							<div>
-								
 								{itemArray.map((item) =>
 									<RecordItem key={item.id}>
 										<span className="note">{item.notes}</span>
