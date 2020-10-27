@@ -7,9 +7,9 @@ const ButtonWrapper = styled.div`
 	position: fixed;
 	bottom: 20px;
 	left: 50%;
-	width: 320px;
+	width: 300px;
 	padding: 15px 0;
-	transform: translateX(-160px);
+	transform: translateX(-150px);
 	text-align: center;
 	border-radius: 10px;
 `;
