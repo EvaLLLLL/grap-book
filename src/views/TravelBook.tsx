@@ -1,25 +1,11 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import BookDetails from '../components/BookDetails';
 import Button from '../components/Button';
 import {Link} from 'react-router-dom';
 import {useRecords} from '../lib/useRecords';
-import styled from 'styled-components';
-import {useBooks} from '../lib/useBooks';
-
-const RecordItem = styled.div`
-background: #1c1c1e;
-			border: 1px solid #343436;
-			padding: 10px 20px;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			> .note {
-				color: #999;
-			}
-`;
+import RecordItem from '../components/RecordItem';
 
 const TravelBook: React.FC = (props) => {
-	const {updateAmount} = useBooks();
 	const {records, getAmount} = useRecords();
 	const travelItems = records.filter(item => item.iconName === 'travel');
 	const amount = getAmount('travel')

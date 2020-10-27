@@ -34,11 +34,11 @@ const Wrapper = styled.div`
 
 const Home: React.FC = (props) => {
 	const [hideAddBook, setHideAddBook] = useState(true);
+	const {books, addNewBook} = useBooks();
+	
 	const addBookVisible = () => {
 		setHideAddBook(!hideAddBook);
 	};
-	
-	const {books, addNewBook} = useBooks();
 	
 	const addBookItem = (iconName: string, title: string) => {
 		const names = books.map((item: any) => {

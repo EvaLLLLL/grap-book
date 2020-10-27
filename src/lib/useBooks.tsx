@@ -45,13 +45,7 @@ const useBooks = () => {
 		setBooks([...books, newBook]);
 	};
 	
-	const updateAmount = (iconName: string, amount: number) => {
-		const currentBook = books.filter(book => book.iconName === iconName)[0];
-		const newBookAmount = {...currentBook, amount: amount};
-		setBooks([...books, newBookAmount]);
-	};
-	
-	return {books, addNewBook, updateAmount};
+	return {books, addNewBook};
 };
 
 export {useBooks};
