@@ -12,6 +12,7 @@ const ButtonWrapper = styled.div`
 	transform: translateX(-150px);
 	text-align: center;
 	border-radius: 10px;
+	cursor: pointer;
 `;
 
 type Props = {
