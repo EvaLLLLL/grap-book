@@ -10,6 +10,8 @@ export type RecordItem = {
 	createdAt?: string
 };
 
+type newRcordItem = Omit<RecordItem, 'id'>
+
 const useRecords = () => {
 	const [records, setRecords] = useState<RecordItem[]>([]);
 	
@@ -22,7 +24,7 @@ const useRecords = () => {
 		window.localStorage.setItem('records', JSON.stringify(records));
 	}, [records]);
 	
-	const addRecords = (newRecordItem: RecordItem) => {
+	const addRecords = (newRecordItem: newRcordItem) => {
 		const newRecord = {
 			id: createID(),
 			iconName: newRecordItem.iconName,

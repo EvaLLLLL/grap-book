@@ -1,4 +1,4 @@
-import React, {ChangeEventHandler, useEffect, useRef, useState} from 'react';
+import React, {ChangeEventHandler, useRef, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import styled from 'styled-components';
 import {generateOutput} from '../lib/generateOutput';
@@ -78,12 +78,10 @@ const Money = () => {
 	const [output, setOutput] = useState('0');
 	const {addRecords} = useRecords();
 	const inputRef = useRef<HTMLTextAreaElement>(null);
-	const id = createID();
 	const history = useHistory();
 	const iconName = history.location.pathname.split('/')[2]
 	
 	const [newRecord, setNewRecord] = useState({
-		id: id,
 		iconName: iconName,
 		notes: '',
 		recordMoney: 0
