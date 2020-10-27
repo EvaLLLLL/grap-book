@@ -5,8 +5,23 @@ import {Link} from 'react-router-dom';
 import {BookItem} from '../lib/useBooks';
 import {useRecords} from '../lib/useRecords';
 
+const BookWrapper = styled.div`
+	padding: 0 10px;
+	@media(max-height: 600px){
+		padding: 0 15px;
+	}
+	width: 320px;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-160px);
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	overflow: scroll;
+`;
+
 const BookItemWrapper = styled.div`
-width: 150px;
+width: 140px;
 border-radius: 10px;
 background: #26282a;
 color: white;
@@ -36,18 +51,10 @@ margin: 10px 0;
 const BookNumber = styled.div`
 color: #999;
 margin-top: 40px;
+@media (max-height: 600px){
+margin-top: 10px;
+}
 `;
-const BookWrapper = styled.div`
-	width: 320px;
-	position: absolute;
-	left: 50%;
-	transform: translateX(-160px);
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	overflow: scroll;
-`;
-
 
 type Props = {
 	bookContent: Array<BookItem>

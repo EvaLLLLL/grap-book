@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 	margin: auto;
 	> span {
 		font-size: 2em;
-		padding: 15px 0;
+		padding: 15px 10px;
 	}
 	> .icon {
 	width: 3em;
