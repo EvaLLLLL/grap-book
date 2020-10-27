@@ -21,6 +21,10 @@ const Date = styled.div`
 	padding: 4px 20px 10px 0;
 `;
 
+const ItemWrapper = styled.div`
+	margin-bottom: 20vh;
+`
+
 const BookMoney: React.FC<Props> = (props) => {
 	const {records, getAmount} = useRecords();
 	const amount = getAmount(props.iconName);
@@ -47,35 +51,38 @@ const BookMoney: React.FC<Props> = (props) => {
 	});
 	
 	const beautifyDate = (date: string) => {
-		const day = dayjs(date)
-		const now = dayjs()
-		if(day.isSame(now, 'day')){
-			return '今天'
+		const day = dayjs(date);
+		const now = dayjs();
+		if (day.isSame(now, 'day')) {
+			return '今天';
 		} else if (day.isSame(now.subtract(1, 'day'), 'day')) {
-			return '昨天'
+			return '昨天';
 		} else {
-			return dayjs(date).format('MM-DD')
+			return dayjs(date).format('MM-DD');
 		}
 	};
 	
 	return (
 		<div>
 			<BookDetails number={amount} title={props.title} iconName={props.iconName}>
-				{array.map(([date, itemArray]) => {
-					return (
-						<div>
-							{itemArray.map((item) =>
-								<RecordItem key={item.id}>
-									<span className="note">{item.notes}</span>
-									<span className="money">￥{item.recordMoney}</span>
-								</RecordItem>
-							)}
-							<Date>
-								{beautifyDate(date)}
-							</Date>
-						</div>
-					);
-				})}
+				<ItemWrapper>
+					{array.map(([date, itemArray]) => {
+						return (
+							<div>
+								
+								{itemArray.map((item) =>
+									<RecordItem key={item.id}>
+										<span className="note">{item.notes}</span>
+										<span className="money">￥{item.recordMoney}</span>
+									</RecordItem>
+								)}
+								<Date>
+									{beautifyDate(date)}
+								</Date>
+							</div>
+						);
+					})}
+				</ItemWrapper>
 			</BookDetails>
 			<Link to={`/money/${props.iconName}/edit`}>
 				<Button content={'+ 记一笔'}/>

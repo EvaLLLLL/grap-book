@@ -7,6 +7,8 @@ const Wrapper = styled.div`
 	color: white;
 	position: relative;
 	background: black;
+	display: flex;
+	flex-direction: column;
 	height: 100vh;
 	> .titleWrapper {
 			> .title {
@@ -43,6 +45,9 @@ const Wrapper = styled.div`
 			}
 		}
 	}
+	> .content {
+	overflow: scroll;
+	}
 `;
 
 type Props = {
@@ -69,9 +74,7 @@ const BookDetails: React.FC<Props> = (props) => {
 				<span className="number">￥{number}</span>
 			</div>
 			<div className="content">
-				<div className="records">
 					{props.children}
-				</div>
 			</div>
 		</Wrapper>);
 };
