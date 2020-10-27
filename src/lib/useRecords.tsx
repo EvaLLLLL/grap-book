@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import {createID} from './createId';
 import {useUpdate} from './useUpdate';
 
-export type RecordItem = {
+export type RecordItemType = {
 	id: number
 	iconName: string,
 	recordMoney: number,
@@ -10,10 +10,10 @@ export type RecordItem = {
 	createdAt?: string
 };
 
-type newRcordItem = Omit<RecordItem, 'id'>
+type newRcordItem = Omit<RecordItemType, 'id'>
 
 const useRecords = () => {
-	const [records, setRecords] = useState<RecordItem[]>([]);
+	const [records, setRecords] = useState<RecordItemType[]>([]);
 	
 	useEffect(() => {
 		const localRecords = JSON.parse(window.localStorage.getItem('records') || '[]')
