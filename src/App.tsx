@@ -21,37 +21,37 @@ function App() {
 					<Route exact path='/money/food'>
 						<FoodBook/>
 					</Route>
-					<Route exact path='/money/food/:id'>
+					<Route exact path='/money/food/edit'>
 						<Money/>
 					</Route>
 					<Route exact path='/money/clothes'>
 						<ClothesBook/>
 					</Route>
-					<Route exact path='/money/clothes/:id'>
+					<Route exact path='/money/clothes/edit'>
 						<Money/>
 					</Route>
 					<Route exact path='/money/travel'>
 						<TravelBook/>
 					</Route>
-					<Route exact path='/money/travel/:id'>
+					<Route exact path='/money/travel/edit'>
 						<Money/>
 					</Route>
 					<Route exact path='/money/pets'>
 						<PetsBook/>
 					</Route>
-					<Route exact path='/money/pets/:id'>
+					<Route exact path='/money/pets/edit'>
 						<Money/>
 					</Route>
 					<Route exact path='/money/learn'>
 						<LearnBook/>
 					</Route>
-					<Route exact path='/money/learn/:id'>
+					<Route exact path='/money/learn/edit'>
 						<Money/>
 					</Route>
 					<Route exact path='/money/traffic'>
 						<TrafficBook/>
 					</Route>
-					<Route exact path='/money/traffic/:id'>
+					<Route exact path='/money/traffic/edit'>
 						<Money/>
 					</Route>
 					<Redirect exact from="/" to="/home"/>

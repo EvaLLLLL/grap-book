@@ -25,7 +25,7 @@ const BookMoney: React.FC<Props> = (props) => {
 					</RecordItem>
 				)}
 			</BookDetails>
-			<Link to={`/money/${props.iconName}/:id`}>
+			<Link to={`/money/${props.iconName}/edit`}>
 				<Button content={'+ 记一笔'}/>
 			</Link>
 		</div>

@@ -76,13 +76,15 @@ const MoneyWrapper = styled.div`
 
 const Money = () => {
 	const [output, setOutput] = useState('0');
-	const {records, addRecords} = useRecords();
+	const {addRecords} = useRecords();
 	const inputRef = useRef<HTMLTextAreaElement>(null);
 	const id = createID();
+	const history = useHistory();
+	const iconName = history.location.pathname.split('/')[2]
 	
 	const [newRecord, setNewRecord] = useState({
 		id: id,
-		iconName: 'travel',
+		iconName: iconName,
 		notes: '',
 		recordMoney: 0
 	});
@@ -112,7 +114,6 @@ const Money = () => {
 		(inputRef.current || {value: ''}).value = '';
 	};
 	
-	const history = useHistory();
 	const goBack = () => {
 		history.goBack();
 	};
