@@ -14,9 +14,9 @@ const useBooks = () => {
 	const [books, setBooks] = useState<BookItem[]>([]);
 	
 	useEffect(() => {
-		let localRecords = JSON.parse(window.localStorage.getItem('records') || '[]');
-		if (localRecords.length === 0) {
-			localRecords = [
+		let localBooks = JSON.parse(window.localStorage.getItem('books') || '[]');
+		if (localBooks.length === 0) {
+			localBooks = [
 				{
 					id: 1,
 					iconName: 'travel',
@@ -26,18 +26,12 @@ const useBooks = () => {
 				}
 			];
 		}
-		setBooks(localRecords);
+		setBooks(localBooks);
 	}, []);
 	
 	useUpdate(() => {
-		window.localStorage.setItem('records', JSON.stringify(books));
+		window.localStorage.setItem('books', JSON.stringify(books));
 	}, [books]);
-	
-	const addRecord = (newBookItem: BookItem) => {
-		const record = {...newBookItem, createdAt: (new Date()).toISOString()};
-		setBooks([...books, record]);
-		return true;
-	};
 	
 	const addNewBook = (iconName: string, title: string) => {
 		const newBook = {
@@ -50,7 +44,7 @@ const useBooks = () => {
 		setBooks([...books, newBook]);
 	};
 	
-	return {books, addNewBook, addRecord};
+	return {books, addNewBook};
 };
 
 export {useBooks};

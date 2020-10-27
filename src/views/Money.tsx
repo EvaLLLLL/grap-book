@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, {ChangeEventHandler, useEffect, useRef, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import styled from 'styled-components';
 import {generateOutput} from '../lib/generateOutput';
 import Icon from '../components/Icon';
+import {createID} from '../lib/createId';
+import {useRecords} from '../lib/useRecords';
 
 const MoneyWrapper = styled.div`
 	position: relative;
@@ -11,6 +13,9 @@ const MoneyWrapper = styled.div`
 	display: grid;
 	grid-template-rows: 35% 25% 40%;
 	> .note {
+		> .test {
+			color: white;
+		}
 		border: 1px solid #999;
 		> textarea {
 			font-size: 1.2em;
@@ -68,8 +73,19 @@ const MoneyWrapper = styled.div`
 	}
 `;
 
+
 const Money = () => {
 	const [output, setOutput] = useState('0');
+	const {records, addRecords} = useRecords();
+	const inputRef = useRef<HTMLTextAreaElement>(null);
+	const id = createID();
+	
+	const [newRecord, setNewRecord] = useState({
+		id: id,
+		iconName: 'travel',
+		notes: '',
+		recordMoney: 0
+	});
 	
 	const onClickButtonWrapper = (e: React.MouseEvent) => {
 		const text = (e.target as HTMLButtonElement).textContent || '0';
@@ -77,6 +93,23 @@ const Money = () => {
 			return;
 		}
 		setOutput(generateOutput(text, output));
+		setNewRecord({...newRecord, recordMoney: parseFloat(generateOutput(text, output))});
+	};
+	
+	const addNotes: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
+		setNewRecord({...newRecord, notes: e.target.value});
+	};
+	
+	const submit = () => {
+		if (newRecord.recordMoney !== 0) {
+			if (addRecords(newRecord)) {
+				alert('保存成功');
+			}
+		} else {
+			alert('请输入大于 0 的金额');
+		}
+		setOutput('0');
+		(inputRef.current || {value: ''}).value = '';
 	};
 	
 	const history = useHistory();
@@ -87,7 +120,9 @@ const Money = () => {
 	return (
 		<MoneyWrapper>
 			<div className="note">
-				<textarea placeholder="点击输入备注"/>
+				<div className="test">
+				</div>
+				<textarea placeholder="点击输入备注" onChange={addNotes} ref={inputRef}/>
 				<Icon name="close" className="icon" onClick={goBack}/>
 			</div>
 			<div className="output">
@@ -106,7 +141,7 @@ const Money = () => {
 				<button>7</button>
 				<button>8</button>
 				<button>9</button>
-				<button className="ok">OK</button>
+				<button className="ok" onClick={submit}>OK</button>
 				<button>0</button>
 				<button className="dot">.</button>
 			</div>
