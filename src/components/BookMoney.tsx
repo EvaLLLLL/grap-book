@@ -34,7 +34,7 @@ const BookMoney: React.FC<Props> = (props) => {
 	
 	Items.forEach((item) => {
 		if (item.createdAt) {
-			const key = item.createdAt;
+			const key = dayjs(item.createdAt).format('YYYY-MM-DD');
 			if (!(key in hash)) {
 				hash[key] = [];
 			}
@@ -68,17 +68,17 @@ const BookMoney: React.FC<Props> = (props) => {
 		<div>
 			<BookDetails number={amount} title={props.title} iconName={props.iconName}>
 				<ItemWrapper>
-					{array.map(([date, itemArray]) => {
+					{array.map((arrayItem) => {
 						return (
-							<div>
-								{itemArray.map((item) =>
+							<div key={array.indexOf(arrayItem)}>
+								{arrayItem[1].map((item) =>
 									<RecordItem key={item.id}>
 										<span className="note">{item.notes}</span>
 										<span className="money">￥{item.recordMoney}</span>
 									</RecordItem>
 								)}
 								<Date>
-									{beautifyDate(date)}
+									{beautifyDate(arrayItem[0])}
 								</Date>
 							</div>
 						);

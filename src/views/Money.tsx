@@ -78,7 +78,7 @@ const Money = () => {
 	const {addRecords} = useRecords();
 	const inputRef = useRef<HTMLTextAreaElement>(null);
 	const history = useHistory();
-	const iconName = history.location.pathname.split('/')[2]
+	const iconName = history.location.pathname.split('/')[2];
 	
 	const [newRecord, setNewRecord] = useState({
 		iconName: iconName,
@@ -103,6 +103,7 @@ const Money = () => {
 		if (newRecord.recordMoney !== 0) {
 			if (addRecords(newRecord)) {
 				alert('保存成功');
+				goBack();
 			}
 		} else {
 			alert('请输入大于 0 的金额');
