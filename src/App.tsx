@@ -9,8 +9,10 @@ import PetsBook from './views/PetsBook';
 import LearnBook from './views/LearnBook';
 import TrafficBook from './views/TrafficBook';
 import Money from './views/Money';
+import addQrcode from './lib/addQrcode';
 
 function App() {
+	addQrcode()
 	return (
 		<div className="App">
 			<Router>
