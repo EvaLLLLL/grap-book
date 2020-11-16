@@ -20,8 +20,8 @@ const useBooks = () => {
 			localBooks = [
 				{
 					id: 1,
-					iconName: 'travel',
-					title: '旅行',
+					iconName: 'pets',
+					title: '宠物',
 					notesNumber: 0,
 					amount: 0,
 				}
